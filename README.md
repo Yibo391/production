@@ -2,8 +2,8 @@
 
 ### Warning
 The B3 Production server, hosted on the university's infrastructure, has been archived following the conclusion of the assignment for which it was developed. This means the application and its associated functionalities are no longer accessible, as the server was specifically used for educational purposes and the project's live demonstration. The archival indicates the project's active development and deployment phase has ended, and it now serves primarily as a reference or portfolio piece for the technologies and methodologies applied during its creation.
-
 -----------------------------
+
 
 ### Introduction 
 B3 Production is a sophisticated real-time web application designed for project management and issue tracking, integrating seamlessly with GitLab via its API. Utilizing Node.js, Express.js, WebSocket technology for real-time bi-directional communication, and Embedded JavaScript Templates (EJS) for dynamic content rendering, it stands out for its efficient handling of real-time data updates. The application also employs Axios for seamless HTTP requests and dotenv for secure environment configuration. Styled with CSS and modern JavaScript (ES modules), it offers an enhanced user experience for real-time project management tasks.
