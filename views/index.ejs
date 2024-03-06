@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f6f8fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #24292e;
+    }
+
+    button {
+      background-color: #0366d6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2188ff;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1><i class="fab fa-github"></i> <%= organizationName %> Organization</h1>
+    <button onclick="enterIssues()">Enter Issues</button>
+  </div>
+
+  <script>
+    // Function to redirect to /issues
+    function enterIssues() {
+      window.location.href = '/b3/issues';
+    }
+  </script>
+</body>
+
+</html>

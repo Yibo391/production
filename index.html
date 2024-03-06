@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WebSocket Example</title>
+</head>
+
+<body>
+  <h1>WebSocket Example</h1>
+  <div id="messages"></div>
+
+  <script>
+    // Establish WebSocket connection
+    const socket = new WebSocket('ws://localhost:8080'); // Replace with your server's WebSocket URL
+
+    // Handle WebSocket connection events
+    socket.onopen = () => {
+      console.log('Connected to WebSocket server');
+    };
+
+    socket.onmessage = (event) => {
+      // Handle incoming WebSocket messages
+      const message = event.data;
+      console.log('Received message:', message);
+
+      // Update the UI with the received message
+      const messagesDiv = document.getElementById('messages');
+      messagesDiv.innerHTML += `<p>${message}</p>`;
+    };
+
+    // Send a WebSocket message
+    const sendMessage = () => {
+      const input = document.getElementById('message-input');
+      const message = input.value;
+
+      socket.send(message);
+
+      input.value = ''; // Clear the input field
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Issues</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <script src="/js/client.js"></script>
+
+  <link src="/css/style.css">
+
+  <style>
+    body {
+      background-color: #f6f8fa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      background-color: #f6f8fa;
+    }
+
+    .card-header .fa {
+      margin-right: 10px;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .issue-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .issue-header h5 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .issue-body {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .comment {
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .comment:first-child {
+      border-top: none;
+    }
+
+    .issue-body,
+    .comment {
+      display: none;
+    }
+
+    .active .issue-body,
+    .active .comment {
+      display: block;
+    }
+
+    .list-group-item.active {
+      background-color: #f6f8fa;
+      color: #333;
+    }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <% issuesResults.forEach((result) => { %>
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-code-branch"></i> <%= result.project %>
+      </div>
+      <% if (result.issues.length > 0) { %>
+      <% for (let i = 0; i < result.issues.length; i++) { %>
+      <!-- Existing code to render an issue -->
+      <% } %>
+      <% } else { %>
+      <li class="list-group-item">
+        <p>No issue now.</p>
+      </li>
+      <% } %>
+
+      <ul class="list-group list-group-flush">
+        <% for (let i = 0; i < result.issues.length; i++) { %>
+        <li class="list-group-item">
+          <div class="issue-header">
+            <h5><%= result.issues[i].title %></h5>
+            <p><small class="text-muted">Created Time: <%= result.issues[i].time %></small></p>
+          </div>
+          <div class="issue-body">
+            <p><%= result.issues[i].description %></p>
+            <p><small class="text-muted">Started By: <%= result.issues[i].startedBy %></small></p>
+            <p><small class="text-muted">Issue ID: <%= result.issues[i].id %></small></p>
+          </div>
+          <% for(let j = 0; j < result.issues[i].comments.length; j++) { %>
+          <div class="comment">
+            <p>User: <%= result.issues[i].comments[j].user %>, Comment: <%= result.issues[i].comments[j].body %> <small class="text-muted">Time: <%= result.issues[i].comments[j].time %></small></p>
+          </div>
+          <% } %>
+          <div class="comment-input" style="display: none;">
+            <input type="text" placeholder="Submit a comment...">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <% }) %>
+  </div>
+  <script src="/js/issueInteractions.js"></script>
+</body>
+
+</html>
