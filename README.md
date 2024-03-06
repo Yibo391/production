@@ -5,7 +5,7 @@ Video
 
 This is a recorded presentation, for stating how it works
 
-[![2023-02-07 en]('click')](https://youtu.be/YmzJBH4CI10)
+
 
 ### Start it
 
